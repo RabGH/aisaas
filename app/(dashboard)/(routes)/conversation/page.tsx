@@ -36,7 +36,8 @@ const ConversationPage = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       const userMessage = {
-        messages: [{ role: "user", content: values.prompt }],
+        role: "user",
+        content: values.prompt,
       };
 
       const newMessages = [...messages, userMessage];
