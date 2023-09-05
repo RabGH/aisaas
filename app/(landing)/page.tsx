@@ -1,5 +1,12 @@
+import { UserButton } from "@clerk/nextjs";
+
 const LandingPage = () => {
-  return <div>Landing Page (Unprotected)</div>;
+  return (
+    <>
+      <UserButton afterSignOutUrl="/" />
+      <div>Landing Page (Unprotected)</div>
+    </>
+  );
 };
 
 export default LandingPage;
