@@ -11,7 +11,7 @@ import Image from "next/image";
 import OpenAI from "openai";
 
 import Heading from "@/components/heading";
-import { EmptyImage } from "@/components/empty/empty-image";
+import { Empty } from "@/components/empty/empty";
 import Loader from "@/components/loader";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -164,7 +164,7 @@ const ImagePage = () => {
             </div>
           )}
           {images.length === 0 && !isLoading && (
-            <EmptyImage label="No images generated." />
+            <Empty label="No images generated." />
           )}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8">
             {images.map((src) => (
