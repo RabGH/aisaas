@@ -7,29 +7,34 @@ const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY_KEY });
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { messages } = body;
-
+    const { prompt, amount = 1, resolution = "512x512" } = body;
     const { userId } = auth();
+
     if (!userId) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
-
     if (!openai.apiKey) {
       return new NextResponse("OpenAI API Key not set.", { status: 500 });
     }
-
-    if (!messages) {
-      return new NextResponse("No messages", { status: 400 });
+    if (!prompt) {
+      return new NextResponse("Prompt is required", { status: 400 });
+    }
+    if (!amount) {
+      return new NextResponse("Amount is required", { status: 400 });
+    }
+    if (!resolution) {
+      return new NextResponse("Resolution is required", { status: 400 });
     }
 
-    const response = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
-      messages: messages,
+    const response = await openai.images.generate({
+      prompt: prompt,
+      n: parseInt(amount, 10),
+      size: resolution,
     });
 
-    return NextResponse.json(response.choices[0].message, { status: 200 });
+    return NextResponse.json(response.data, { status: 200 });
   } catch (error) {
-    console.log("[CONVERSATION_ERROR]", error);
+    console.log("[IMAGE_ERROR]", error);
     return new NextResponse("Internal error", { status: 500 });
   }
 }

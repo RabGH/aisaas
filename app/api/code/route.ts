@@ -33,7 +33,7 @@ export async function POST(req: Request) {
       messages: [instructionMessage, ...messages],
     });
 
-    return NextResponse.json(response.choices[0].message);
+    return NextResponse.json(response.choices[0].message, { status: 200 });
   } catch (error) {
     console.log("[CODE_ERROR]", error);
     return new NextResponse("Internal error", { status: 500 });
