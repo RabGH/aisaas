@@ -10,7 +10,7 @@ import { useState } from "react";
 import OpenAI from "openai";
 
 import Heading from "@/components/heading";
-import { Empty } from "@/components/empty";
+import { EmptyConversation } from "@/components/empty/empty-conversation";
 import Loader from "@/components/loader";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -110,7 +110,7 @@ const ConversationPage = () => {
             </div>
           )}
           {messages.length === 0 && !isLoading && (
-            <Empty label="No conversation started" />
+            <EmptyConversation label="No conversation started" />
           )}
           <div className="flex flex-col-reverse gap-y-4">
             {messages.map((message) => (
