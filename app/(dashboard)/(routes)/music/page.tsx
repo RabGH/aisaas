@@ -14,13 +14,13 @@ import { Empty } from "@/components/empty/empty";
 import Loader from "@/components/loader";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 
 import { formSchema } from "./constants";
 
-const ConversationPage = () => {
+const MusicPage = () => {
   const router = useRouter();
+  const [music, setMusic] = useState<string>();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -33,10 +33,10 @@ const ConversationPage = () => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      const response = await axios.post("/api/music", {
-        messages: newMessages,
-      });
+      setMusic(undefined);
+      const response = await axios.post("/api/music");
 
+      setMusic(response.data.audio);
       form.reset();
     } catch (error) {
       console.log(error);
@@ -95,14 +95,12 @@ const ConversationPage = () => {
               <Loader />
             </div>
           )}
-          {length === 0 && !isLoading && (
-            <Empty label="No music generated" />
-          )}
-          <div className="flex flex-col-reverse gap-y-4"></div>
+          {!music && !isLoading && <Empty label="No music generated" />}
+          <div className="flex">Music will be generated here</div>
         </div>
       </div>
     </div>
   );
 };
 
-export default ConversationPage;
+export default MusicPage;
