@@ -38,7 +38,7 @@ const ConversationPage = () => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      const userMessage = {
+      const userMessage: OpenAI.Chat.Completions.ChatCompletionMessage = {
         role: "user",
         content: values.prompt,
       };
