@@ -6,10 +6,10 @@ const replicate = new Replicate({ auth: process.env.REPLICATE_API_TOKEN! });
 
 export async function POST(req: Request) {
   try {
+    const { userId } = auth();
     const body = await req.json();
     const { prompt } = body;
 
-    const { userId } = auth();
     if (!userId) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
@@ -23,10 +23,10 @@ export async function POST(req: Request) {
     }
 
     const response = await replicate.run(
-      "andreasjansson/stable-diffusion-animation:ca1f5e306e5721e19c473e0d094e6603f0456fe759c10715fcd6c1b79242d4a5",
+      "anotherjesse/zeroscope-v2-xl:71996d331e8ede8ef7bd76eba9fae076d31792e4ddf4ad057779b443d6aea62f",
       {
         input: {
-          prompt: prompt,
+          prompt,
         },
       }
     );
