@@ -8,28 +8,28 @@ const testimonials = [
     avatar: "J",
     title: "Software Engineer",
     description:
-      "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+      "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
   },
   {
     name: "Test",
     avatar: "A",
     title: "Designer",
     description:
-      "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+      "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
   },
   {
     name: "Test",
     avatar: "M",
     title: "Web Developer",
     description:
-      "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+      "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
   },
   {
     name: "Test",
     avatar: "M",
     title: "Data Analyst",
     description:
-      "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+      "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
   },
 ];
 
