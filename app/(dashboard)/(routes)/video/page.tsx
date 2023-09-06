@@ -11,7 +11,7 @@ import { useState } from "react";
 import Heading from "@/components/heading";
 import { Empty } from "@/components/empty/empty";
 import Loader from "@/components/loader";
-import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 
@@ -66,7 +66,7 @@ const VideoPage = () => {
                 render={({ field }) => (
                   <FormItem className="col-span-12 lg:col-span-10">
                     <FormControl className="m-0 p-0">
-                      <Textarea
+                      <Input
                         {...field}
                         className="border-0 outline-none 
                         focus-visible:ring-0 
