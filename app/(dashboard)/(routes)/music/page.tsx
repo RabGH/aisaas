@@ -7,7 +7,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import OpenAI from "openai";
 
 import Heading from "@/components/heading";
 import { Empty } from "@/components/empty/empty";

@@ -7,20 +7,19 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import OpenAI from "openai";
 
 import Heading from "@/components/heading";
 import { Empty } from "@/components/empty/empty";
 import Loader from "@/components/loader";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 
 import { formSchema } from "./constants";
 
-const ConversationPage = () => {
+const VideoPage = () => {
   const router = useRouter();
+  const [video, setVideo] = useState<string>();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -33,10 +32,10 @@ const ConversationPage = () => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      const response = await axios.post("/api/conversation", {
-        messages: newMessages,
-      });
+      setVideo(undefined);
+      const response = await axios.post("/api/video", values);
 
+      setVideo(response.data[0]);
       form.reset();
     } catch (error) {
       console.log(error);
@@ -95,14 +94,19 @@ const ConversationPage = () => {
               <Loader />
             </div>
           )}
-          {length === 0 && !isLoading && (
-            <Empty label="No video generated" />
+          {!video && !isLoading && <Empty label="No video generated" />}
+          {video && (
+            <video
+              controls
+              className="w-full aspect-video mt-9 rounded-lg border bg-black"
+            >
+              <source src={video} />
+            </video>
           )}
-          <div className="flex flex-col-reverse gap-y-4"></div>
         </div>
       </div>
     </div>
   );
 };
 
-export default ConversationPage;
+export default VideoPage;
