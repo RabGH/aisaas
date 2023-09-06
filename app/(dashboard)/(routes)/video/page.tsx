@@ -73,7 +73,7 @@ const VideoPage = () => {
                         focus-visible:ring-transparent 
                         "
                         disabled={isLoading}
-                        placeholder="Generate an action movie with cars and explosions."
+                        placeholder="Generate an action movie with cars and explosions..."
                       />
                     </FormControl>
                   </FormItem>

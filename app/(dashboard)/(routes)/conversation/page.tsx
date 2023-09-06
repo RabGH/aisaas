@@ -88,7 +88,7 @@ const ConversationPage = () => {
                         focus-visible:ring-transparent 
                         "
                         disabled={isLoading}
-                        placeholder="Why do cats sleep alot?"
+                        placeholder="Why do cats sleep alot?..."
                       />
                     </FormControl>
                   </FormItem>
