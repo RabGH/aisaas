@@ -34,7 +34,7 @@ const MusicPage = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       setMusic(undefined);
-      const response = await axios.post("/api/music");
+      const response = await axios.post("/api/music", values);
 
       setMusic(response.data.audio);
       form.reset();
@@ -96,7 +96,11 @@ const MusicPage = () => {
             </div>
           )}
           {!music && !isLoading && <Empty label="No music generated" />}
-          <div className="flex">Music will be generated here</div>
+          {music && (
+            <audio controls className="w-full mt-8">
+              <source src={music} />
+            </audio>
+          )}
         </div>
       </div>
     </div>
