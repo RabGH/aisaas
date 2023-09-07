@@ -15,6 +15,8 @@ import {
 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import { getApiLimitCount } from "../lib/api-limit";
+import FreeCounter from "@/components/free-counter";
 
 const montserrat = Montserrat({ weight: "400", subsets: ["latin"] });
 
@@ -62,11 +64,16 @@ const routes = [
   },
 ];
 
-const SideBar = () => {
+interface SidebarProps {
+  apiLimitCount: number;
+}
+
+const SideBar = ({ apiLimitCount }: SidebarProps) => {
   const pathname = usePathname();
   return (
     <div className="space-y-4 py-4 flex flex-col h-full bg-[#1c1917] text-white">
       <div className="px-3 py-2 flex-1">
+        {/* Logo */}
         <Link href="/dashboard" className="flex items-center pl-3 mb-14">
           <div className="relative w-14 h-14 mr-2">
             <Image fill alt="logo" src="/logo.png" />
@@ -75,6 +82,7 @@ const SideBar = () => {
             Ai Companion
           </h1>
         </Link>
+        {/* Sidebar Links */}
         <div className="space-y-1">
           {routes.map((route) => (
             <Link
@@ -96,6 +104,8 @@ const SideBar = () => {
           ))}
         </div>
       </div>
+      {/* Free Counter */}
+      <FreeCounter apiLimitCount={apiLimitCount} />
     </div>
   );
 };
