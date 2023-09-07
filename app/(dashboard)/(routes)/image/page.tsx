@@ -8,14 +8,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Image from "next/image";
-import OpenAI from "openai";
 
 import Heading from "@/components/heading";
 import { Empty } from "@/components/empty/empty";
 import Loader from "@/components/loader";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import { Card, CardFooter } from "@/components/ui/card";
 import {
   Select,
