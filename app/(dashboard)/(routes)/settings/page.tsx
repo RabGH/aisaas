@@ -11,6 +11,11 @@ const SettingsPage = async () => {
         iconColor="text-gray-700"
         bgColor="bg-gray-700/10"
       />
+      <div className="px-4 lg:px-8">
+        <h2 className="text-2xl font-bold text-muted-foreground">
+          Still in progress
+        </h2>
+      </div>
     </div>
   );
 };
