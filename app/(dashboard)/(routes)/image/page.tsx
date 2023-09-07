@@ -8,7 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Image from "next/image";
-import { toast } from 'react-hot-toast';
+import { toast } from "react-hot-toast";
 
 import Heading from "@/components/heading";
 import { Empty } from "@/components/empty/empty";
@@ -58,7 +58,7 @@ const ImagePage = () => {
       if (error?.response?.status === 403) {
         proModal.onOpen();
       } else {
-        toast.error("Something went wrong");
+        toast.error("Something went wrong, subscription ended, or try again.");
       }
     } finally {
       router.refresh();

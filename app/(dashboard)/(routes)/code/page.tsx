@@ -20,6 +20,7 @@ import { UserAvatar } from "@/components/user-avatar";
 import { BotAvatar } from "@/components/bot-avatar";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { useProModal } from "@/hooks/use-pro-modal";
+import toast from "react-hot-toast";
 
 import { formSchema } from "./constants";
 
@@ -59,6 +60,8 @@ const CodePage = () => {
       console.log(`Generate Button:${error} `);
       if (error?.response?.status === 403) {
         proModal.onOpen();
+      } else {
+        toast.error("Something went wrong, subscription ended, or try again.");
       }
     } finally {
       router.refresh();
