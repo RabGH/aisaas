@@ -14,10 +14,12 @@ import Loader from "@/components/loader";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+import { useProModal } from "@/hooks/use-pro-modal";
 
 import { formSchema } from "./constants";
 
 const MusicPage = () => {
+  const proModal = useProModal();
   const router = useRouter();
   const [music, setMusic] = useState<string>();
 
@@ -37,8 +39,11 @@ const MusicPage = () => {
 
       setMusic(response.data.audio);
       form.reset();
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      console.log(`Generate Button:${error} `);
+      if (error?.response?.status === 403) {
+        proModal.onOpen();
+      }
     } finally {
       router.refresh();
     }

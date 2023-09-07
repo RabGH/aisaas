@@ -18,10 +18,12 @@ import { cn } from "@/lib/utils";
 import { UserAvatar } from "@/components/user-avatar";
 import { BotAvatar } from "@/components/bot-avatar";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+import { useProModal } from "@/hooks/use-pro-modal";
 
 import { formSchema } from "./constants";
 
 const ConversationPage = () => {
+  const proModal = useProModal();
   const router = useRouter();
   const [messages, setMessages] = useState<OpenAI.Chat.ChatCompletionMessage[]>(
     []
@@ -52,8 +54,11 @@ const ConversationPage = () => {
       setMessages((current) => [...current, userMessage, response.data]);
 
       form.reset();
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      console.log(`Generate Button:${error} `);
+      if (error?.response?.status === 403) {
+        proModal.onOpen();
+      }
     } finally {
       router.refresh();
     }

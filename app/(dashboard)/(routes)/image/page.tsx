@@ -25,10 +25,12 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+import { useProModal } from "@/hooks/use-pro-modal";
 
 import { amountOptions, formSchema, resolutionOptions } from "./constants";
 
 const ImagePage = () => {
+  const proModal = useProModal();
   const router = useRouter();
   const [images, setImages] = useState<string[]>([]);
 
@@ -52,8 +54,11 @@ const ImagePage = () => {
 
       setImages(urls);
       form.reset();
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      console.log(`Generate Button:${error} `);
+      if (error?.response?.status === 403) {
+        proModal.onOpen();
+      }
     } finally {
       router.refresh();
     }
