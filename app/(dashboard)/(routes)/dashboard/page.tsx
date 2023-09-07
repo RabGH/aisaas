@@ -35,7 +35,7 @@ const DashboardPage = () => {
               </div>
               <div className="font-semibold">{tool.label}</div>
             </div>
-            <ArrowRight className={cn("w-5 h-5", tool.color)} />
+            <ArrowRight className="text-black w-5 h-5" />
           </Card>
         ))}
       </div>
