@@ -1,20 +1,13 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import {
-  ArrowRight,
-  Code,
-  ImageIcon,
-  MessageSquare,
-  Music,
-  VideoIcon,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { aiTools } from "@/constants";
 
-const tools = aiTools
+const tools = aiTools;
 
 const DashboardPage = () => {
   const router = useRouter();
