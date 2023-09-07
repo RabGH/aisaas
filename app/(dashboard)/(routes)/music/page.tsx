@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+import { toast } from 'react-hot-toast';
 import Heading from "@/components/heading";
 import { Empty } from "@/components/empty/empty";
 import Loader from "@/components/loader";
@@ -43,6 +44,8 @@ const MusicPage = () => {
       console.log(`Generate Button:${error} `);
       if (error?.response?.status === 403) {
         proModal.onOpen();
+      } else {
+        toast.error("Something went wrong");
       }
     } finally {
       router.refresh();

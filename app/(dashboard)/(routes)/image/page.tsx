@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Image from "next/image";
+import { toast } from 'react-hot-toast';
 
 import Heading from "@/components/heading";
 import { Empty } from "@/components/empty/empty";
@@ -56,6 +57,8 @@ const ImagePage = () => {
       console.log(`Generate Button:${error} `);
       if (error?.response?.status === 403) {
         proModal.onOpen();
+      } else {
+        toast.error("Something went wrong");
       }
     } finally {
       router.refresh();
