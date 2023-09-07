@@ -3,5 +3,5 @@
 import { Toaster } from "react-hot-toast";
 
 export const ToasterProvider = () => {
-  return <div>ToasterProvider</div>;
+  return <Toaster />;
 };
