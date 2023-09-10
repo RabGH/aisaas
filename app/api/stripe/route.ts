@@ -15,9 +15,10 @@ export async function GET() {
     if (!userId || !user) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
+
     const userSubscription = await prismadb.userSubscription.findUnique({
       where: {
-        userId: user.id,
+        userId,
       },
     });
 
@@ -54,13 +55,13 @@ export async function GET() {
         },
       ],
       metadata: {
-        userId: user.id,
+        userId,
       },
     });
 
     return new NextResponse(JSON.stringify({ url: stripeSession.url }));
   } catch (error) {
-    console.log("[STRIE_ERROR]", error);
+    console.log("[STRIPE_ERROR]", error);
     return new NextResponse("Internal Error", { status: 500 });
   }
 }
