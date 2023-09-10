@@ -1,5 +1,4 @@
 import {
-  ArrowRight,
   Code,
   ImageIcon,
   LayoutDashboard,
@@ -90,5 +89,43 @@ export const aiRoutes = [
     label: "Settings",
     icon: Settings,
     href: "/settings",
+  },
+];
+
+export const landingFeatures = [
+  {
+    name: "OpenAI",
+    icon: MessageSquare,
+    title: "Conversation bot",
+    description:
+      "Engage in natural, human-like conversations with our AI assistant. Get answers, chat, and interact seamlessly.",
+  },
+  {
+    name: "OpenAI",
+    icon: Code,
+    title: "Code bot",
+    description:
+      "Accelerate your coding process with our AI-powered code completion tool. Write code faster and more efficiently.",
+  },
+  {
+    name: "OpenAI",
+    icon: ImageIcon,
+    title: "Image Bot",
+    description:
+      "Generate stunning images and graphics effortlessly with the help of our AI-powered image generator.",
+  },
+  {
+    name: "Replicate",
+    icon: Music,
+    title: "Music Bot",
+    description:
+      "Create music like never before. Our AI music bot can compose melodies and tunes tailored to your preferences.",
+  },
+  {
+    name: "Replicate",
+    icon: VideoIcon,
+    title: "Video Bot",
+    description:
+      "Produce captivating videos with ease. Our AI video bot can help you create engaging visual content.",
   },
 ];
