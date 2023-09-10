@@ -1,23 +1,26 @@
-"use client";
-
 import { Zap } from "lucide-react";
 
-import { useMount } from "@/hooks/mount-hook";
-import { Card, CardContent } from "@/components/ui/card";
 import { MAX_FREE_COUNTS } from "@/constants";
-import { Progress } from "@/components/ui/progress";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
+import { useMount } from "@/hooks/mount-hook";
 import { useProModal } from "@/hooks/use-pro-modal";
 
 interface FreeCounterProps {
+  isPro: boolean;
   apiLimitCount: number;
 }
 
-const FreeCounter = ({ apiLimitCount }: FreeCounterProps) => {
+const FreeCounter = ({
+  isPro = false,
+  apiLimitCount = 0,
+}: FreeCounterProps) => {
   const proModal = useProModal();
-
   const isMounted = useMount();
+
   if (!isMounted) return null;
+  if (isPro) return null;
 
   return (
     <div className="px-3">
@@ -34,8 +37,8 @@ const FreeCounter = ({ apiLimitCount }: FreeCounterProps) => {
           </div>
           <Button
             onClick={proModal.onOpen}
-            className="w-full"
             variant="premium"
+            className="w-full"
           >
             Upgrade
             <Zap className="w-4 h-4 ml-2 fill-white" />
