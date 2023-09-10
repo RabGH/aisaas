@@ -15,7 +15,7 @@ import { Empty } from "@/components/empty/empty";
 import Loader from "@/components/loader";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { cn } from "@/util/utils";
 import { UserAvatar } from "@/components/user-avatar";
 import { BotAvatar } from "@/components/bot-avatar";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";

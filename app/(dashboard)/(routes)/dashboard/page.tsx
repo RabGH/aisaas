@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 
 import { Card } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
+import { cn } from "@/util/utils";
 import { aiTools } from "@/constants";
 
 const tools = aiTools;

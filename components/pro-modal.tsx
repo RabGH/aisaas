@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 
 import { useProModal } from "@/hooks/use-pro-modal";
 import { Check, Zap } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/util/utils";
 import { aiTools } from "@/constants";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";

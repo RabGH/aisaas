@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Montserrat } from "next/font/google";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/util/utils";
 import FreeCounter from "@/components/free-counter";
 import { aiRoutes } from "@/constants";
 
