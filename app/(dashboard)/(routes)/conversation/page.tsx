@@ -10,14 +10,14 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import OpenAI from "openai";
 
-import Heading from "@/components/heading";
+import Heading from "@/components/chat/heading";
 import { Empty } from "@/components/empty/empty";
-import Loader from "@/components/loader";
+import Loader from "@/components/chat/loader";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/util/utils";
-import { UserAvatar } from "@/components/user-avatar";
-import { BotAvatar } from "@/components/bot-avatar";
+import { UserAvatar } from "@/components/chat/user-avatar";
+import { BotAvatar } from "@/components/chat/bot-avatar";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { useProModal } from "@/hooks/use-pro-modal";
 

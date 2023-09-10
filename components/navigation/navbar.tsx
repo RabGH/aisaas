@@ -1,6 +1,6 @@
 import { UserButton } from "@clerk/nextjs";
 
-import MobileSidebar from "@/components/mobile-sidebar";
+import MobileSidebar from "@/components/navigation/mobile-sidebar";
 import { getApiLimitCount } from "@/util/api-limit";
 import { checkSubscription } from "@/util/subscription";
 

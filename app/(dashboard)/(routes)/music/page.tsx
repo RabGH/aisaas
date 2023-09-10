@@ -8,10 +8,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-import { toast } from 'react-hot-toast';
-import Heading from "@/components/heading";
+import { toast } from "react-hot-toast";
+import Heading from "@/components/chat/heading";
 import { Empty } from "@/components/empty/empty";
-import Loader from "@/components/loader";
+import Loader from "@/components/chat/loader";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";

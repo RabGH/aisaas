@@ -1,5 +1,5 @@
-import Heading from "@/components/heading";
-import { SubscriptionButton } from "@/components/subscription-button";
+import Heading from "@/components/chat/heading";
+import { SubscriptionButton } from "@/components/subscription/subscription-button";
 import { checkSubscription } from "@/util/subscription";
 import { Settings } from "lucide-react";
 
