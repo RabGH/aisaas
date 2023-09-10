@@ -94,37 +94,37 @@ export const aiRoutes = [
 
 export const landingFeatures = [
   {
-    name: "OpenAI",
+    name: "Conversation bot",
     icon: MessageSquare,
-    title: "Conversation bot",
+    title: "OpenAI",
     description:
       "Engage in natural, human-like conversations with our AI assistant. Get answers, chat, and interact seamlessly.",
   },
   {
-    name: "OpenAI",
+    name: "Code bot",
     icon: Code,
-    title: "Code bot",
+    title: "OpenAI",
     description:
       "Accelerate your coding process with our AI-powered code completion tool. Write code faster and more efficiently.",
   },
   {
-    name: "OpenAI",
+    name: "Image Bot",
     icon: ImageIcon,
-    title: "Image Bot",
+    title: "OpenAI",
     description:
       "Generate stunning images and graphics effortlessly with the help of our AI-powered image generator.",
   },
   {
-    name: "Replicate",
+    name: "Music Bot",
     icon: Music,
-    title: "Music Bot",
+    title: "Replicate",
     description:
       "Create music like never before. Our AI music bot can compose melodies and tunes tailored to your preferences.",
   },
   {
-    name: "Replicate",
+    name: "Video Bot",
     icon: VideoIcon,
-    title: "Video Bot",
+    title: "Replicate",
     description:
       "Produce captivating videos with ease. Our AI video bot can help you create engaging visual content.",
   },
